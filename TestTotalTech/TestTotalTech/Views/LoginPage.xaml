@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="White"
+             x:Class="TestTotalTech.Views.LoginPage">
+    <ContentPage.Content>
+        
+
+
+            <ScrollView
+            BackgroundColor="White"
+            Margin="25,5,25,5"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand">
+                <StackLayout >
+                    
+                    <Entry
+                    Margin="0,0,0,30"
+                    HorizontalOptions="FillAndExpand"
+                    Placeholder="Nombre de usuario"
+                    Text="{Binding Usuario}"
+                    TextColor="Black" />
+                    
+                    <Entry
+                    Margin="0,0,0,30"
+                    HorizontalOptions="FillAndExpand"
+                    IsPassword="True"
+                    Placeholder="Contraseña"
+                    Text="{Binding Password}"
+                    TextColor="Black" />
+
+                    <StackLayout Padding="10,5,10,5" Orientation="Horizontal" HorizontalOptions="Center">
+
+                   <Button 
+                
+                    CornerRadius="5"
+                    CommandParameter="login"
+                    Grid.Row="2"
+                    Padding="5"
+                    TextColor="White"
+                    Command="{Binding SignInCommand}"
+                    Text="Login"
+                       BackgroundColor="Blue"
+                    VerticalOptions="EndAndExpand"/>
+
+
+
+                    </StackLayout>
+
+                </StackLayout>
+            </ScrollView>
+       
+    </ContentPage.Content>
+</ContentPage>

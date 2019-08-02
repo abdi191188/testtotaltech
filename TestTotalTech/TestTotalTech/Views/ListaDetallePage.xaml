@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:usercontrol="clr-namespace:TestTotalTech.UserControl"
+             BackgroundColor="White"
+             x:Class="TestTotalTech.Views.ListaDetallePage">
+    <ContentPage.Content>
+
+        <StackLayout Padding="10,20,10,20" >
+            <!--#region Header-->
+
+                <StackLayout Orientation="Horizontal">
+                    <Label
+                        TextColor="Black"
+                        HorizontalOptions="StartAndExpand"
+                        FontSize="15"
+                            Text="Lista de doctores"
+                            />
+
+                    <Button 
+                    CornerRadius="5"
+                    HeightRequest="30"
+                    CommandParameter="login"
+                    Padding="3"
+                    TextColor="White"
+                    Command="{Binding Close}"
+                    Text="Cerrar Sesion"
+                       BackgroundColor="Blue"
+                    HorizontalOptions="EndAndExpand"/>
+                </StackLayout>
+           
+            <!--#endregion Header-->
+
+            <StackLayout 
+                Grid.Row="1"
+                BackgroundColor="White">
+
+            <usercontrol:XListView ItemsSource="{Binding Personas}"
+                 ItemTappedCommand="{Binding ItemSelected}"
+             HasUnevenRows="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Grid.RowSpan="2"
+                                   Source="{Binding ImageUrl}"
+                                   Aspect="AspectFill"
+                                   HeightRequest="80"
+                                   WidthRequest="80" />
+
+                                    <StackLayout Orientation="Vertical">
+                                    <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold" />
+
+                                   <Label Grid.Column="1"
+                                   Text="{Binding rating}"
+                                   FontAttributes="Bold" />
+
+                                    <Label Grid.Column="1"
+                                   Text="{Binding Email}"
+                                   FontAttributes="Bold" />
+
+                                    <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   VerticalOptions="End" />
+                                    </StackLayout>
+                                </StackLayout>
+                                  
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </usercontrol:XListView>
+
+
+        </StackLayout>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

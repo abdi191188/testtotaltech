@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="White"
+             x:Class="TestTotalTech.Views.DetallePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--#region Header-->
+            <StackLayout>
+                <StackLayout
+                        Orientation="Horizontal">
+                    <Label
+                        TextColor="Black"
+                        FontSize="15"
+                            Text="Detalle de contacto"
+                            />
+                </StackLayout>
+            </StackLayout>
+            <!--#endregion Header-->
+
+            <ScrollView
+                Padding="10"
+                BackgroundColor="White">
+
+                <StackLayout>
+                <StackLayout  BindingContext="{Binding Detalle }" >
+                    <StackLayout Orientation="Horizontal">
+                    <Image Grid.RowSpan="2"
+                                   Source="{Binding ImageUrl}"
+                                   Aspect="AspectFill"
+                                   HeightRequest="80"
+                                   WidthRequest="80" />
+
+                    <StackLayout Orientation="Vertical">
+                        <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold" />
+
+                        <Label Grid.Column="1"
+                                   Text="{Binding rating}"
+                                   FontAttributes="Bold" />
+
+                        <Label Grid.Column="1"
+                                   Text="{Binding Email}"
+                                   FontAttributes="Bold" />
+
+                        <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   VerticalOptions="End" />
+                    </StackLayout>
+                        
+                </StackLayout>
+                    <BoxView Color="Gray" WidthRequest ="100" HeightRequest="0.5" />
+                    <StackLayout>
+                        <Label Text="Direccion" FontAttributes="Bold" Margin="0,15,0,0"  TextColor="Black" />
+                        <Label Grid.Column="1"
+                                   Text="{Binding Calle , StringFormat='Calle: {0}'}" />
+                        <Label Grid.Column="1"
+                                   Text="{Binding Ciudad , StringFormat='Ciudad: {0}'}" />
+                        <Label Grid.Column="1"
+                                   Text="{Binding Estado , StringFormat='Estado: {0}'}" />
+                        <Label Grid.Column="1"
+                                   Text="{Binding CodigoPostal , StringFormat='CodigoPostal: {0}'}" />
+                        <Label Grid.Column="1"
+                                   Text="{Binding Telefono ,StringFormat='Telefono: {0}'}" />
+                    </StackLayout>
+
+                  
+            </StackLayout>
+                <StackLayout>
+                        <Label Text="Ubicacion" FontAttributes="Bold" Margin="0,15,0,0"  TextColor="Black" />
+                        <WebView
+                            x:Name="webView" WidthRequest="200" HeightRequest="450"
+                            Source="{Binding Source1}"/>
+                </StackLayout>
+                    <StackLayout Orientation="Horizontal" >
+                        <Button 
+                Margin="0,15,0,0"
+                    CornerRadius="5"
+                    CommandParameter="login"
+
+                    Padding="5"
+                    TextColor="White"
+                    Text="Contactar"
+                       BackgroundColor="Blue"
+                            HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                </StackLayout>
+
+
+
+            </ScrollView> 
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
